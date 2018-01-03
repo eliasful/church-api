@@ -9,8 +9,7 @@ module.exports = {
 
   attributes: {
     name: {
-      type: 'string',
-      required: 'true'
+      type: 'string'
     },
     phone: {
       type: 'string'
