@@ -9,19 +9,51 @@ module.exports = {
 
   attributes: {
     name: {
-      type: 'string'
+      type: 'string',
+      required: true
     },
     phone: {
-      type: 'string'
+      type: 'string',
+      required: true
     },
     address: {
-      type: 'string'
+      type: 'string',
+      required: true
     },
     number: {
-      type: 'string'
+      type: 'string',
+      required: true
     },
     city: {
-      type: 'string'
+      type: 'string',
+      required: true
+    },
+    responsible: {
+      type: 'string',
+      required: true
+    },
+    email: {
+      type: 'email',
+      required: true
+    },
+    cpf: {
+      type: 'string',
+      required: true
     }
+  },
+
+  afterCreate: function(values, next) {
+    return User.create({
+      church: values.id,
+      name: values.responsible,
+      email: values.email,
+      password: values.cpf
+    }).exec(function(err, user) {
+      if (err) {
+        next(err);
+      }
+
+      next();
+    });
   }
 };
