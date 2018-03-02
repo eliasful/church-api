@@ -12,7 +12,7 @@ module.exports = {
 
     if (!email || !password) {
       return res.json(401, {
-        err: 'email and password required'
+        err: 'E-mail e senha obrigatórios'
       });
     }
 
@@ -21,7 +21,7 @@ module.exports = {
     }, function(err, user) {
       if (!user) {
         return res.json(401, {
-          err: 'invalid email or password'
+          err: 'E-mail ou senha inválidos'
         });
       }
 
@@ -34,7 +34,7 @@ module.exports = {
 
         if (!valid) {
           return res.json(401, {
-            err: 'invalid email or password'
+            err: 'E-mail ou senha inválidos'
           });
         } else {
           res.json({

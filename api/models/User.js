@@ -28,6 +28,24 @@ module.exports = {
     name: {
       type: 'string'
     },
+    phone: {
+      type: 'string'
+    },
+    address: {
+      type: 'string'
+    },
+    number: {
+      type: 'string'
+    },
+    neighborhood: {
+      type: 'string'
+    },
+    city: {
+      type: 'string'
+    },
+    zipcode: {
+      type: 'string'
+    },
 
     // We don't wan't to send back encrypted password either
     toJSON: function() {
