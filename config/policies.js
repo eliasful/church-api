@@ -49,7 +49,7 @@ module.exports.policies = {
   // feed : ['isNiceToAnimals', 'hasRabbitFood']
   // }
 
-  '*': ['isAuthorized'], // Everything resctricted here
+  '*': ['isAuthorized', 'churchFilter'], // Everything resctricted here
   'ChurchController': {
     'create': true // We dont need authorization here, allowing public access
   },

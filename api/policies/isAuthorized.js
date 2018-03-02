@@ -37,6 +37,19 @@ module.exports = function(req, res, next) {
       err: 'Invalid Token!'
     });
     req.token = token; // This is the decrypted token or the payload you provided
+
+    return User.findOne(token.id)
+      // .populate(['accessProfiles','userGroups'])
+      .then(function(user) {
+        if (!user) return res.unauthorized('Usuário não existe');
+
+        // if (!user.active) return res.unauthorized('Usuário bloqueado!');
+        // if (!user.approved) return res.unauthorized('Usuário não aprovado!');
+
+        req.user = user;
+        next()
+        return user;
+      });
     next();
   });
 };
