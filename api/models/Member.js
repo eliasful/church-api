@@ -47,6 +47,8 @@ module.exports = {
     mother: {
       model: 'member'
     },
-    children: 'string'
+    children: 'string',
+    lat: 'string',
+    lng: 'string'
   }
 };
