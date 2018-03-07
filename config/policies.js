@@ -51,7 +51,12 @@ module.exports.policies = {
 
   '*': ['isAuthorized', 'churchFilter'], // Everything resctricted here
   'ChurchController': {
-    'create': true // We dont need authorization here, allowing public access
+    'create': true,
+    'find': true
+  },
+
+  'MemberController': {
+    'create': true
   },
 
   'AuthController': {

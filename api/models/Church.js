@@ -4,6 +4,7 @@
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
+var bcrypt = require('bcrypt');
 
 module.exports = {
 
@@ -39,8 +40,20 @@ module.exports = {
     cpf: {
       type: 'string',
       required: true
+    },
+    hash: {
+      type: 'string'
     }
   },
+
+  beforeCreate: function (values, cb) {
+    return bcrypt.hash(values.name + values.cpf, 10, function(err, hash) {
+     if(err) return cb(err);
+
+     values.hash = hash;
+     return cb();
+    });
+   },
 
   afterCreate: function(values, next) {
     return User.create({
@@ -50,10 +63,10 @@ module.exports = {
       password: values.cpf
     }).exec(function(err, user) {
       if (err) {
-        next(err);
+        return next(err);
       }
 
-      next();
+      return next();
     });
   }
 };
