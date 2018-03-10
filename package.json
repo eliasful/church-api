@@ -24,6 +24,8 @@
     "rc": "1.0.1",
     "sails": "~0.12.13",
     "sails-disk": "~0.10.9",
+    "sails-ember-blueprints": "^0.1.4",
+    "sails-generate-ember-blueprints": "0.0.9",
     "sails-mysql": "^0.11.5"
   },
   "scripts": {
