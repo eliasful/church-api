@@ -49,6 +49,9 @@ module.exports = {
     },
     children: 'string',
     lat: 'string',
-    lng: 'string'
+    lng: 'string',
+    group: {
+      model: 'group'
+    }
   }
 };
